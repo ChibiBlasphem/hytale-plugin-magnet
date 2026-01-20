@@ -1,0 +1,5 @@
+items.ChibiKookie_Magnet_Magnet.name=Item Magnet
+items.ChibiKookie_Magnet_Magnet.description=Pulls items towards the player.
+customUI.ChibiKookie.Magnet.magnetConfig.pickupRadius.label=Pickup Radius
+customUI.ChibiKookie.Magnet.magnetConfig.allowUnequippedUse.label=Allow Unequipped Use
+customUI.ChibiKookie.Magnet.magnetConfig.allowUseFromBackpack.label=Allow use from backpack

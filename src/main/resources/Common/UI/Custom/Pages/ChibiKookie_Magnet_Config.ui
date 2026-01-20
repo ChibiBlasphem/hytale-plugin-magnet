@@ -1,0 +1,92 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@InputLabel = Label {
+  Anchor: (Left: 6, Right: 16, Width: 250);
+  Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center, Wrap: true);
+};
+
+$C.@PageOverlay {
+    $C.@DecoratedContainer {
+        Anchor: (Width: 600, Height: 260);
+
+        #Title {
+            Group {
+                $C.@Title {
+                    @Text = "Magnet Configuration";
+                }
+            }
+        }
+
+        #Content {
+            LayoutMode: Top;
+            FlexWeight: 1;
+
+            Group #PickupRadius {
+                LayoutMode: Left;
+                Anchor: (Bottom: 16);
+
+                @InputLabel {
+                    FlexWeight: 1;
+                    Text: %server.customUI.ChibiKookie.Magnet.magnetConfig.pickupRadius.label;
+                }
+
+                $C.@NumberField #Input {
+                    @Anchor = (Width: 60, Left: 0, Right: 0);
+
+                    Format: (
+                      MaxDecimalPlaces: 1,
+                      MinValue: 0.1
+                    );
+                }
+            }
+
+            Group #AllowUnequippedUse {
+                LayoutMode: Left;
+                Anchor: (Bottom: 16);
+
+                @InputLabel {
+                    FlexWeight: 1;
+                    Text: %server.customUI.ChibiKookie.Magnet.magnetConfig.allowUnequippedUse.label;
+                }
+
+                $C.@CheckBox #Input {
+                    Anchor: (Width: 22, Right: 0);
+                }
+            }
+
+            Group #AllowUseFromBackpack {
+                LayoutMode: Left;
+                Anchor: (Bottom: 16);
+
+                @InputLabel {
+                    FlexWeight: 1;
+                    Text: %server.customUI.ChibiKookie.Magnet.magnetConfig.allowUseFromBackpack.label;
+                }
+
+                $C.@CheckBox #Input {
+                    Anchor: (Width: 22, Right: 0);
+                }
+            }
+
+            Group {
+                LayoutMode: Center;
+                Anchor: (Top: 8);
+
+                $C.@SecondaryTextButton #SaveButton {
+                    @Sounds = $Sounds.@SaveSettings;
+                    @Anchor = (Left: 4);
+                    Text: "Save";
+                    FlexWeight: 1;
+                }
+
+                $C.@SecondaryTextButton #CancelButton {
+                    @Sounds = $Sounds.@ButtonsCancel;
+                    @Anchor = (Left: 4);
+                    Text: "Cancel";
+                    FlexWeight: 1;
+                }
+            }
+        }
+    }
+}
